@@ -1,0 +1,152 @@
+.menu {
+  background-color: var(--black-soft);
+}
+
+.menu__header {
+  text-align: center;
+  margin-bottom: var(--space-16);
+}
+
+.menu__label {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--red);
+  margin-bottom: var(--space-4);
+}
+
+.menu__title {
+  font-size: clamp(28px, 4vw, 42px);
+  color: var(--white);
+  margin-bottom: var(--space-4);
+}
+
+.menu__subtitle {
+  font-size: 15px;
+  color: var(--grey-300);
+  max-width: 480px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+.menu__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
+}
+
+.menu__card {
+  position: relative;
+  background-color: var(--black);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+
+.menu__card:hover {
+  border-color: rgba(200, 16, 46, 0.3);
+}
+
+.menu__card-image {
+  width: 100%;
+  aspect-ratio: 16/10;
+  overflow: hidden;
+  background-color: var(--grey-900);
+}
+
+.menu__card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.menu__tag {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  padding: var(--space-1) var(--space-3);
+  background-color: var(--red);
+  color: var(--white-pure);
+  font-family: var(--font-heading);
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: var(--radius);
+  z-index: 1;
+}
+
+.menu__card-body {
+  padding: var(--space-5) var(--space-6) var(--space-6);
+}
+
+.menu__card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-bottom: var(--space-2);
+}
+
+.menu__card-name {
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--white);
+  text-transform: uppercase;
+}
+
+.menu__card-price {
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--red);
+  white-space: nowrap;
+}
+
+.menu__card-desc {
+  font-size: 13px;
+  color: var(--grey-500);
+  line-height: 1.6;
+}
+
+.menu__footer {
+  text-align: center;
+  margin-top: var(--space-12);
+}
+
+.menu__cta {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-3) var(--space-8);
+  border: 1px solid var(--grey-700);
+  color: var(--white);
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  border-radius: var(--radius);
+  transition: border-color 0.15s, color 0.15s;
+}
+
+.menu__cta:hover {
+  border-color: var(--red);
+  color: var(--red);
+}
+
+@media (max-width: 900px) {
+  .menu__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .menu__grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,132 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: var(--black);
+}
+
+.hero__bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.hero__bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.35;
+}
+
+.hero__bg-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, rgba(10, 10, 10, 0.5) 0%, rgba(10, 10, 10, 0.8) 100%);
+}
+
+.hero__content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  padding: var(--space-20) var(--space-6);
+}
+
+.hero__badge {
+  display: inline-block;
+  padding: var(--space-2) var(--space-4);
+  border: 1px solid rgba(200, 16, 46, 0.3);
+  border-radius: var(--radius);
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--grey-300);
+  margin-bottom: var(--space-8);
+}
+
+.hero__title {
+  font-size: clamp(36px, 6vw, 56px);
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: var(--space-4);
+  color: var(--white);
+  font-family: var(--font-heading);
+}
+
+.hero__subtitle {
+  font-family: var(--font-heading);
+  font-size: clamp(18px, 3vw, 28px);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 6px;
+  color: var(--red);
+  margin-bottom: var(--space-6);
+}
+
+.hero__tagline {
+  font-size: 16px;
+  color: var(--grey-300);
+  max-width: 440px;
+  margin: 0 auto var(--space-10);
+  line-height: 1.7;
+}
+
+.hero__actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.hero__btn {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-3) var(--space-8);
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  border-radius: var(--radius);
+  transition: background-color 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.hero__btn--primary {
+  background-color: var(--red);
+  color: var(--white-pure);
+}
+
+.hero__btn--primary:hover {
+  background-color: var(--red-dark);
+}
+
+.hero__btn--secondary {
+  border: 1px solid var(--grey-700);
+  color: var(--white);
+}
+
+.hero__btn--secondary:hover {
+  border-color: var(--red);
+  color: var(--red);
+}
+
+@media (max-width: 768px) {
+  .hero__content {
+    padding: var(--space-16) var(--space-4);
+  }
+
+  .hero__badge {
+    font-size: 11px;
+  }
+}

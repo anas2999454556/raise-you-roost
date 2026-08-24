@@ -1,0 +1,88 @@
+.sauces {
+  background-color: var(--black-soft);
+}
+
+.sauces__header {
+  text-align: center;
+  margin-bottom: var(--space-12);
+}
+
+.sauces__label {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--red);
+  margin-bottom: var(--space-4);
+}
+
+.sauces__title {
+  font-size: clamp(28px, 4vw, 42px);
+  color: var(--white);
+  margin-bottom: var(--space-4);
+}
+
+.sauces__subtitle {
+  font-size: 15px;
+  color: var(--grey-300);
+  max-width: 440px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+.sauces__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-5);
+}
+
+.sauces__card {
+  background-color: var(--black);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  text-align: center;
+  transition: border-color 0.2s;
+}
+
+.sauces__card:hover {
+  border-color: rgba(200, 16, 46, 0.25);
+}
+
+.sauces__card-image {
+  width: 100%;
+  aspect-ratio: 16/10;
+  overflow: hidden;
+  background-color: var(--grey-900);
+}
+
+.sauces__card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.sauces__card-name {
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--white);
+  text-transform: uppercase;
+  padding: var(--space-4) var(--space-4) var(--space-5);
+}
+
+@media (max-width: 768px) {
+  .sauces__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .sauces__grid {
+    grid-template-columns: 1fr;
+    max-width: 360px;
+    margin: 0 auto;
+  }
+}

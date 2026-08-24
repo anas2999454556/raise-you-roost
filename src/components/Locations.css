@@ -1,0 +1,139 @@
+.locations {
+  background-color: var(--black);
+}
+
+.locations__header {
+  text-align: center;
+  margin-bottom: var(--space-10);
+}
+
+.locations__label {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--red);
+  margin-bottom: var(--space-4);
+}
+
+.locations__title {
+  font-size: clamp(28px, 4vw, 42px);
+  color: var(--white);
+  margin-bottom: var(--space-4);
+}
+
+.locations__subtitle {
+  font-size: 15px;
+  color: var(--grey-300);
+  max-width: 440px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+.locations__filters {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-10);
+}
+
+.locations__filter {
+  padding: var(--space-2) var(--space-5);
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--grey-500);
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.locations__filter:hover {
+  color: var(--grey-200);
+}
+
+.locations__filter--active {
+  color: var(--white);
+  border-color: var(--red);
+}
+
+.locations__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-5);
+}
+
+.locations__card {
+  padding: var(--space-6);
+  background-color: var(--black-soft);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius-lg);
+  transition: border-color 0.2s;
+}
+
+.locations__card:hover {
+  border-color: rgba(200, 16, 46, 0.25);
+}
+
+.locations__card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-2);
+}
+
+.locations__card-city {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--white);
+}
+
+.locations__status {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #22C55E;
+}
+
+.locations__status--soon {
+  color: var(--grey-500);
+}
+
+.locations__card-state {
+  font-size: 13px;
+  color: var(--grey-500);
+  margin-bottom: var(--space-2);
+}
+
+.locations__card-address {
+  font-size: 14px;
+  color: var(--grey-300);
+}
+
+.locations__card-line {
+  width: 24px;
+  height: 2px;
+  background-color: var(--red);
+  margin-top: var(--space-5);
+  opacity: 0.3;
+}
+
+@media (max-width: 900px) {
+  .locations__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .locations__grid {
+    grid-template-columns: 1fr;
+  }
+}
