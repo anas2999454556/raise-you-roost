@@ -1,88 +1,160 @@
 .sauces {
-  background-color: var(--black-soft);
+  background: var(--black-soft);
+  position: relative;
+  overflow: hidden;
 }
 
+.sauces::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(200,16,46,0.04) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* ===== HEADER ===== */
 .sauces__header {
   text-align: center;
-  margin-bottom: var(--space-12);
-}
-
-.sauces__label {
-  display: inline-block;
-  font-family: var(--font-heading);
-  font-size: 12px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  color: var(--red);
-  margin-bottom: var(--space-4);
+  margin-bottom: var(--space-16);
 }
 
 .sauces__title {
-  font-size: clamp(28px, 4vw, 42px);
+  font-size: clamp(42px, 5vw, 72px);
   color: var(--white);
   margin-bottom: var(--space-4);
 }
 
 .sauces__subtitle {
-  font-size: 15px;
-  color: var(--grey-300);
+  font-size: 16px;
+  color: var(--grey-400);
   max-width: 440px;
   margin: 0 auto;
+  font-weight: 300;
   line-height: 1.7;
 }
 
+/* ===== GRID ===== */
 .sauces__grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-5);
+  grid-template-columns: repeat(6, 1fr);
+  gap: var(--space-4);
 }
 
+/* ===== CARD ===== */
 .sauces__card {
-  background-color: var(--black);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--space-6) var(--space-4) var(--space-5);
+  background: var(--black-card);
+  border: 1px solid var(--glass-border);
   border-radius: var(--radius-lg);
+  cursor: pointer;
+  transition: transform 0.4s var(--ease-spring),
+              border-color 0.3s ease,
+              box-shadow 0.4s ease;
   overflow: hidden;
   text-align: center;
-  transition: border-color 0.2s;
 }
 
-.sauces__card:hover {
-  border-color: rgba(200, 16, 46, 0.25);
+.sauces__card--hovered {
+  transform: translateY(-12px) scale(1.03);
+  border-color: rgba(var(--sauce-color, 200,16,46), 0.4);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.5),
+              0 0 30px color-mix(in srgb, var(--sauce-color, #C8102E) 30%, transparent);
 }
 
+/* Glow overlay */
+.sauces__card-glow {
+  position: absolute;
+  bottom: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 80px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--sauce-color, var(--red)) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  filter: blur(20px);
+  pointer-events: none;
+}
+
+.sauces__card--hovered .sauces__card-glow { opacity: 0.3; }
+
+/* Image */
 .sauces__card-image {
-  width: 100%;
-  aspect-ratio: 16/10;
-  overflow: hidden;
-  background-color: var(--grey-900);
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-4);
+  transition: transform 0.4s var(--ease-spring);
 }
+
+.sauces__card--hovered .sauces__card-image { transform: translateY(-6px) scale(1.08); }
 
 .sauces__card-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  max-height: 100%;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 16px rgba(0,0,0,0.5));
+  transition: filter 0.4s ease;
 }
+
+.sauces__card--hovered .sauces__card-image img {
+  filter: drop-shadow(0 12px 24px rgba(0,0,0,0.6));
+}
+
+/* Info */
+.sauces__card-info { width: 100%; }
 
 .sauces__card-name {
   font-family: var(--font-heading);
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 600;
-  color: var(--white);
   text-transform: uppercase;
-  padding: var(--space-4) var(--space-4) var(--space-5);
+  letter-spacing: 1px;
+  color: var(--white);
+  margin-bottom: var(--space-1);
 }
 
-@media (max-width: 768px) {
-  .sauces__grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+.sauces__card-desc {
+  font-size: 11px;
+  color: var(--grey-500);
+  margin-bottom: var(--space-3);
 }
 
-@media (max-width: 480px) {
-  .sauces__grid {
-    grid-template-columns: 1fr;
-    max-width: 360px;
-    margin: 0 auto;
-  }
+/* Heat indicator */
+.sauce__heat {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+}
+
+.sauce__heat-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--grey-700);
+  transition: background 0.2s ease;
+}
+
+.sauce__heat-dot--on {
+  background: var(--red);
+  box-shadow: 0 0 6px var(--red-glow);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .sauces__grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 640px) {
+  .sauces__grid { grid-template-columns: repeat(2, 1fr); }
 }

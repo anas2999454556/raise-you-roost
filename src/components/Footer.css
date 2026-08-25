@@ -1,33 +1,89 @@
 .footer {
-  background-color: var(--black);
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
-  padding: var(--space-16) 0 var(--space-8);
+  background: var(--black-soft);
+  border-top: 1px solid var(--glass-border);
 }
 
+/* ===== TOP ===== */
 .footer__top {
-  display: flex;
-  justify-content: space-between;
-  gap: var(--space-12);
-  margin-bottom: var(--space-12);
+  padding: var(--space-24) 0 var(--space-16);
 }
 
+.footer__top-inner {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: var(--space-20);
+  align-items: start;
+}
+
+/* Brand */
 .footer__brand {
   display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.footer__logo {
+  display: inline-flex;
   align-items: center;
+  gap: var(--space-3);
+  width: fit-content;
+}
+
+.footer__logo img {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  transition: transform 0.3s var(--ease-spring);
+}
+
+.footer__logo:hover img { transform: rotate(-8deg) scale(1.1); }
+
+.footer__logo-text {
+  font-family: var(--font-display) !important;
+  font-size: 20px !important;
+  letter-spacing: 1px !important;
+  line-height: 1 !important;
+}
+
+.footer__tagline {
+  font-size: 14px;
+  color: var(--grey-500);
+  line-height: 1.8;
+  max-width: 340px;
+  font-weight: 300;
+}
+
+/* Socials */
+.footer__socials {
+  display: flex;
   gap: var(--space-3);
 }
 
-.footer__brand-name {
-  font-family: var(--font-heading);
-  font-size: 18px;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: var(--white);
+.footer__social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--glass-border);
+  background: var(--glass-bg);
+  color: var(--grey-400);
+  transition: color 0.2s, border-color 0.2s, background 0.2s, transform 0.2s var(--ease-spring);
 }
 
-.footer__links {
-  display: flex;
-  gap: var(--space-16);
+.footer__social:hover {
+  color: var(--white);
+  border-color: rgba(200,16,46,0.35);
+  background: rgba(200,16,46,0.08);
+  transform: translateY(-3px);
+}
+
+/* Nav */
+.footer__nav {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-8);
 }
 
 .footer__col {
@@ -40,40 +96,67 @@
   font-family: var(--font-heading);
   font-size: 12px;
   font-weight: 600;
-  text-transform: uppercase;
   letter-spacing: 2px;
-  color: var(--grey-500);
+  text-transform: uppercase;
+  color: var(--white);
   margin-bottom: var(--space-2);
 }
 
-.footer__col a {
+.footer__col-link {
   font-size: 14px;
-  color: var(--grey-300);
-  transition: color 0.2s;
+  color: var(--grey-500);
+  transition: color 0.2s, padding-left 0.2s;
+  font-weight: 300;
 }
 
-.footer__col a:hover {
-  color: var(--red);
+.footer__col-link:hover {
+  color: var(--grey-200);
+  padding-left: 6px;
 }
 
+/* ===== BOTTOM ===== */
 .footer__bottom {
-  padding-top: var(--space-8);
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding: var(--space-5) 0;
+  border-top: 1px solid var(--glass-border);
+}
+
+.footer__bottom-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-6);
+  flex-wrap: wrap;
 }
 
 .footer__copy {
   font-size: 12px;
-  color: var(--grey-500);
+  color: var(--grey-600);
+  letter-spacing: 0.3px;
 }
 
-@media (max-width: 768px) {
-  .footer__top {
-    flex-direction: column;
-    gap: var(--space-10);
-  }
+.footer__legal {
+  display: flex;
+  gap: var(--space-6);
+}
 
-  .footer__links {
-    flex-wrap: wrap;
-    gap: var(--space-10);
+.footer__legal a {
+  font-size: 12px;
+  color: var(--grey-600);
+  transition: color 0.2s;
+}
+
+.footer__legal a:hover { color: var(--grey-300); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .footer__top-inner {
+    grid-template-columns: 1fr;
+    gap: var(--space-12);
   }
+}
+
+@media (max-width: 640px) {
+  .footer__nav { grid-template-columns: repeat(2, 1fr); }
+  .footer__bottom-inner { flex-direction: column; align-items: flex-start; }
+  .footer__legal { flex-wrap: wrap; gap: var(--space-4); }
 }

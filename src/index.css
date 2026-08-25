@@ -1,21 +1,47 @@
 :root {
+  /* Brand Colors */
   --red: #C8102E;
-  --red-dark: #A00D24;
+  --red-dark: #9B0D23;
   --red-light: #E8334D;
-  --black: #0A0A0A;
-  --black-soft: #1A1A1A;
-  --white: #FAFAFA;
-  --white-pure: #FFFFFF;
-  --grey-100: #F5F5F5;
-  --grey-200: #E5E5E5;
-  --grey-300: #D4D4D4;
-  --grey-500: #737373;
-  --grey-700: #404040;
-  --grey-900: #171717;
+  --red-glow: rgba(200, 16, 46, 0.35);
+  --red-subtle: rgba(200, 16, 46, 0.08);
 
+  /* Gold Accent */
+  --gold: #D4A843;
+  --gold-light: #F0C84E;
+  --gold-dark: #A07828;
+  --gold-glow: rgba(212, 168, 67, 0.3);
+
+  /* Dark Palette */
+  --black: #080808;
+  --black-soft: #111111;
+  --black-card: #161616;
+  --black-elevated: #1E1E1E;
+
+  /* White / Neutrals */
+  --white: #F8F6F2;
+  --white-pure: #FFFFFF;
+  --cream: #FDF6E7;
+  --grey-100: #F0EDE8;
+  --grey-200: #D8D4CE;
+  --grey-300: #B8B4AE;
+  --grey-400: #9A9590;
+  --grey-500: #6A6560;
+  --grey-700: #3A3530;
+  --grey-900: #1A1714;
+
+  /* Glassmorphism */
+  --glass-bg: rgba(255, 255, 255, 0.04);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-bg-warm: rgba(212, 168, 67, 0.06);
+  --glass-border-warm: rgba(212, 168, 67, 0.15);
+
+  /* Typography */
+  --font-display: 'Bebas Neue', 'Oswald', sans-serif;
   --font-heading: 'Oswald', sans-serif;
   --font-body: 'Inter', sans-serif;
 
+  /* Spacing */
   --space-1: 4px;
   --space-2: 8px;
   --space-3: 12px;
@@ -28,16 +54,40 @@
   --space-16: 64px;
   --space-20: 80px;
   --space-24: 96px;
+  --space-32: 128px;
+  --space-40: 160px;
 
+  /* Border Radius */
   --radius: 4px;
-  --radius-lg: 8px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
 
-  --max-width: 1200px;
+  /* Layout */
+  --max-width: 1280px;
+  --max-width-narrow: 900px;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.3);
+  --shadow-md: 0 8px 24px rgba(0,0,0,0.4);
+  --shadow-lg: 0 20px 60px rgba(0,0,0,0.5);
+  --shadow-red: 0 0 40px rgba(200, 16, 46, 0.3);
+  --shadow-gold: 0 0 40px rgba(212, 168, 67, 0.25);
+
+  /* Transitions */
+  --ease-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: 0.15s var(--ease-smooth);
+  --transition-base: 0.3s var(--ease-smooth);
+  --transition-slow: 0.6s var(--ease-out);
 }
 
-*,
-*::before,
-*::after {
+/* ========================================
+   RESET & BASE
+   ======================================== */
+*, *::before, *::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -48,6 +98,7 @@ html {
   scroll-padding-top: 80px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 body {
@@ -56,6 +107,7 @@ body {
   line-height: 1.6;
   color: var(--white);
   background-color: var(--black);
+  overflow-x: hidden;
 }
 
 a {
@@ -83,32 +135,97 @@ button {
   background: none;
 }
 
-ul {
-  list-style: none;
-}
+ul { list-style: none; }
 
+/* ========================================
+   TYPOGRAPHY
+   ======================================== */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   font-weight: 700;
-  line-height: 1.1;
+  line-height: 1.05;
   text-transform: uppercase;
+  letter-spacing: 0.02em;
 }
 
+.display {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 0.9;
+}
+
+/* ========================================
+   LAYOUT UTILITIES
+   ======================================== */
 .container {
   width: 100%;
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 0 var(--space-6);
+  padding: 0 var(--space-8);
+}
+
+.container--narrow {
+  max-width: var(--max-width-narrow);
+  margin: 0 auto;
+  padding: 0 var(--space-8);
 }
 
 .section {
-  padding: var(--space-24) 0;
+  padding: var(--space-32) 0;
+}
+
+.section--sm {
+  padding: var(--space-20) 0;
+}
+
+/* ========================================
+   GLOBAL LABEL STYLE
+   ======================================== */
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: var(--space-4);
+}
+
+.section-label::before {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 1px;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+
+/* ========================================
+   GLASSMORPHISM CARD
+   ======================================== */
+.glass-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: var(--radius-lg);
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+@media (max-width: 1024px) {
+  .container { padding: 0 var(--space-6); }
+  .section { padding: var(--space-24) 0; }
 }
 
 @media (max-width: 768px) {
-  .section {
-    padding: var(--space-16) 0;
-  }
+  .container { padding: 0 var(--space-5); }
+  .section { padding: var(--space-16) 0; }
 }
 
 @media (prefers-reduced-motion: reduce) {

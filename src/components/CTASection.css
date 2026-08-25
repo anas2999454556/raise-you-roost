@@ -1,0 +1,200 @@
+.cta-section {
+  position: relative;
+  overflow: hidden;
+  padding: var(--space-32) 0;
+  background: var(--black-soft);
+  border-top: 1px solid rgba(200,16,46,0.12);
+  border-bottom: 1px solid rgba(200,16,46,0.12);
+}
+
+/* Background elements */
+.cta-section__bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.cta-section__orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+}
+
+.cta-section__orb--1 {
+  width: 500px;
+  height: 500px;
+  background: rgba(200,16,46,0.08);
+  top: -200px;
+  left: -100px;
+  animation: orbFloat1 8s ease-in-out infinite;
+}
+
+.cta-section__orb--2 {
+  width: 400px;
+  height: 400px;
+  background: rgba(212,168,67,0.05);
+  bottom: -150px;
+  right: -100px;
+  animation: orbFloat2 10s ease-in-out infinite;
+}
+
+@keyframes orbFloat1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(40px, 30px) scale(1.1); }
+}
+
+@keyframes orbFloat2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-30px, -20px) scale(1.08); }
+}
+
+/* Subtle grid texture */
+.cta-section__grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* ===== INNER ===== */
+.cta-section__inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-6);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* ===== TITLE ===== */
+.cta-section__title {
+  font-size: clamp(52px, 8vw, 108px);
+  line-height: 0.9;
+  color: var(--white);
+}
+
+.cta-section__title-accent {
+  color: var(--red);
+  text-shadow: 0 0 60px rgba(200,16,46,0.4), 0 0 120px rgba(200,16,46,0.15);
+}
+
+/* ===== SUBTITLE ===== */
+.cta-section__subtitle {
+  font-size: 16px;
+  color: var(--grey-400);
+  max-width: 460px;
+  line-height: 1.8;
+  font-weight: 300;
+}
+
+/* ===== FORM ===== */
+.cta-section__form {
+  width: 100%;
+  max-width: 520px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.cta-section__input-wrap {
+  display: flex;
+  width: 100%;
+  gap: var(--space-3);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-2);
+  backdrop-filter: blur(12px);
+  transition: border-color 0.3s ease;
+}
+
+.cta-section__input-wrap:focus-within {
+  border-color: rgba(200,16,46,0.4);
+  box-shadow: 0 0 0 3px rgba(200,16,46,0.08);
+}
+
+.cta-section__input {
+  flex: 1;
+  background: none;
+  border: none;
+  outline: none;
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 14px;
+  padding: 8px var(--space-4);
+}
+
+.cta-section__input::placeholder {
+  color: var(--grey-500);
+}
+
+.cta-section__disclaimer {
+  font-size: 11px;
+  color: var(--grey-600);
+  letter-spacing: 0.5px;
+}
+
+/* ===== SUCCESS ===== */
+.cta-section__success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-6) var(--space-8);
+  background: rgba(200,16,46,0.08);
+  border: 1px solid rgba(200,16,46,0.2);
+  border-radius: var(--radius-lg);
+}
+
+.cta-section__success-icon { font-size: 36px; }
+
+.cta-section__success p {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ===== TRUST ===== */
+.cta-section__trust {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.cta-section__trust-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 12px;
+  color: var(--grey-500);
+  letter-spacing: 0.5px;
+  font-weight: 500;
+}
+
+.cta-section__trust-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--red);
+  flex-shrink: 0;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 640px) {
+  .cta-section__input-wrap {
+    flex-direction: column;
+  }
+  .cta-section__input {
+    text-align: center;
+  }
+}

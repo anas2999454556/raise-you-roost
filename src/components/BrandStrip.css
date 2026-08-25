@@ -1,0 +1,43 @@
+.brand-strip {
+  width: 100%;
+  background: var(--red);
+  padding: var(--space-4) 0;
+  border-top: 1px solid var(--red-dark);
+  border-bottom: 1px solid var(--red-dark);
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
+}
+
+/* Fade edges */
+.brand-strip::before,
+.brand-strip::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 80px;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.brand-strip::before {
+  left: 0;
+  background: linear-gradient(to right, var(--red), transparent);
+}
+
+.brand-strip::after {
+  right: 0;
+  background: linear-gradient(to left, var(--red), transparent);
+}
+
+.brand-strip__item {
+  font-family: var(--font-display);
+  font-size: 18px;
+  color: var(--white-pure);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  opacity: 0.95;
+}
+
+/* Separator star is handled via MarqueeText separator prop */
